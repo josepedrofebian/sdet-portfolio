@@ -8,10 +8,10 @@ public class StringMethod {
     public static void main(java.lang.String[] args) {
 
         // Membuat variable username bertipe String
-        java.lang.String username = "Jose";
+        String username = "Jose";
 
         // Menggabungkan String dengan teks lainnya
-        java.lang.String greeting = "Hello, " + username;
+        String greeting = "Hello, " + username;
 
         // Menampilkan hasil concatenation
         System.out.println(greeting);
@@ -23,13 +23,13 @@ public class StringMethod {
         System.out.println(usernameLength);
 
         // Mengubah username menjadi huruf kapital
-        java.lang.String upperCaseUsername = username.toUpperCase();
+        String upperCaseUsername = username.toUpperCase();
 
         // Menampilkan username dalam huruf kapital
         System.out.println(upperCaseUsername);
 
         // Mengubah username menjadi huruf kecil
-        java.lang.String lowerCaseUsername = username.toLowerCase();
+        String lowerCaseUsername = username.toLowerCase();
 
         // Menampilkan username dalam huruf kecil
         System.out.println(lowerCaseUsername);
@@ -41,7 +41,7 @@ public class StringMethod {
         System.out.println(containsJose);
 
         // Membuat String lain untuk dibandingkan
-        java.lang.String anotherUsername = "Jose";
+        String anotherUsername = "Jose";
 
         // Membandingkan isi dua String menggunakan equals()
         boolean isSameUsername = username.equals(anotherUsername);
