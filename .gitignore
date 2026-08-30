@@ -1,1 +1,134 @@
+# =========================
+# Maven
+# =========================
+
+# Maven build output
 target/
+
+# Maven generated files
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties
+
+
+# =========================
+# Java
+# =========================
+
+# Compiled Java files
+*.class
+
+# Java archives
+*.jar
+*.war
+*.ear
+
+# JVM crash logs
+hs_err_pid*
+
+
+# =========================
+# IDE
+# =========================
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# NetBeans
+nbproject/private/
+nbbuild/
+dist/
+.nb-gradle/
+
+
+# =========================
+# VS Code
+# =========================
+
+# Workspace-specific files
+.vscode/
+
+# Uncomment kalau nanti lu memang
+# ingin commit workspace settings:
+# !.vscode/settings.json
+
+
+# =========================
+# Environment / Secrets
+# =========================
+
+# Environment variables / credentials
+.env
+.env.*
+!.env.example
+
+# Local configuration
+*.local
+
+
+# =========================
+# Test Reports
+# =========================
+
+# Surefire reports
+surefire-reports/
+
+# Failsafe reports
+failsafe-reports/
+
+# Test reports
+test-results/
+
+# Allure
+allure-results/
+allure-report/
+
+
+# =========================
+# Logs
+# =========================
+
+*.log
+logs/
+
+
+# =========================
+# Screenshots / Videos
+# =========================
+
+# Temporary automation screenshots
+screenshots/
+videos/
+
+# Selenium recordings / artifacts
+*.mp4
+*.webm
+
+
+# =========================
+# OS
+# =========================
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+
+# =========================
+# Local Drivers
+# =========================
+
+# Selenium/browser driver binaries
+chromedriver.exe
+geckodriver.exe
+msedgedriver.exe
