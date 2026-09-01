@@ -8,13 +8,13 @@ public class Polymorphism {
     public static void main(String[] args) {
 
         // Membuat reference bertipe User yang menunjuk ke object Maker
-        User user = new Maker();
+        UserPolymorphism user = new Maker();
 
         // Memanggil method login melalui reference User
         user.login();
 
         // Membuat reference bertipe User yang menunjuk ke object Checker
-        User checker = new Checker();
+        UserPolymorphism checker = new Checker();
 
         // Memanggil method login melalui reference User
         checker.login();
@@ -22,7 +22,7 @@ public class Polymorphism {
 }
 
 // Membuat parent class User
-class User {
+class UserPolymorphism {
 
     // Membuat method login yang dapat dioverride oleh child class
     public void login() {
@@ -33,7 +33,7 @@ class User {
 }
 
 // Membuat child class Maker yang mewarisi User
-class Maker extends User {
+class Maker extends UserPolymorphism {
 
     // Mengoverride method login milik User
     @Override
@@ -45,7 +45,7 @@ class Maker extends User {
 }
 
 // Membuat child class Checker yang mewarisi User
-class Checker extends User {
+class Checker extends UserPolymorphism {
 
     // Mengoverride method login milik User
     @Override

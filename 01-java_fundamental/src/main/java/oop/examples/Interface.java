@@ -9,7 +9,7 @@ public class Interface {
 
         // Membuat reference bertipe TestAction
         // Reference tersebut menunjuk ke object Maker
-        TestAction testAction = new Maker();
+        TestActionInterface testAction = new Maker();
 
         // Memanggil method executeTest melalui interface
         testAction.executeTest();
@@ -17,7 +17,7 @@ public class Interface {
 }
 
 // Membuat interface TestAction
-interface TestAction {
+interface TestActionInterface {
 
     // Mendefinisikan method executeTest sebagai contract
     // Method interface secara default bersifat public dan abstract
@@ -25,7 +25,7 @@ interface TestAction {
 }
 
 // Membuat class Maker yang mengimplementasikan interface TestAction
-class Maker implements TestAction {
+class Maker implements TestActionInterface {
 
     // Mengimplementasikan method yang diwajibkan oleh interface
     @Override

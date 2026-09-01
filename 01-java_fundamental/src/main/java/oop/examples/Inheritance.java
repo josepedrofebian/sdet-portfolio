@@ -19,7 +19,7 @@ public class Inheritance {
 }
 
 // Membuat parent class bernama User
-class User {
+class UserInheritance {
 
     // Membuat method login yang dapat diwarisi oleh child class
     public void login() {
@@ -30,7 +30,7 @@ class User {
 }
 
 // Membuat child class Checker yang mewarisi class User
-class Checker extends User {
+class Checker extends UserInheritance {
 
     // Membuat method checkTest yang dimiliki oleh Checker
     public void checkTest() {

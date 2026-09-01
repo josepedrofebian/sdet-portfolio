@@ -9,7 +9,7 @@ public class InheritanceChallenge {
         // Di dalam method main, buat object dari class Maker
         Maker maker = new Maker();
         // Gunakan object Maker untuk memanggil method login
-        // Method login berasal dari parent class User
+        // Metwhod login berasal dari parent class User
         maker.login();
         // Gunakan object Maker untuk memanggil method submitTest
         // Method submitTest berasal dari class Maker
