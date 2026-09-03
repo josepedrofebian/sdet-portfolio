@@ -12,6 +12,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class WindowsSwitchingChallenge {
     public static void main(String[] args) {
         // ============================================================
+        // TARGET CONCEPT
+        // ============================================================
+        //
+        // getWindowHandle()
+        // getWindowHandles()
+        // switchTo().window()
+        // ExpectedConditions.numberOfWindowsToBe()
+        // getTitle()
+        // ============================================================
+        // ============================================================
         // CHALLENGE: WINDOW SWITCHING
         // ============================================================
         // [1] Buka browser menggunakan ChromeDriver.
@@ -62,22 +72,11 @@ public class WindowsSwitchingChallenge {
 
         } catch (Exception e) {
             // [13] Gunakan try-catch untuk menangani exception.
-            e.getMessage();
+            System.out.println("Error: " + e.getMessage());
         } finally {
             // [14] Gunakan finally untuk memastikan browser selalu ditutup
             // menggunakan driver.quit().
             driver.quit();
         }
-
-        // ============================================================
-        // TARGET CONCEPT
-        // ============================================================
-        //
-        // getWindowHandle()
-        // getWindowHandles()
-        // switchTo().window()
-        // ExpectedConditions.numberOfWindowsToBe()
-        // getTitle()
-        // ============================================================
     }
 }
