@@ -8,19 +8,19 @@ public class PolymorphismChallenge {
 
         // Di dalam method main, buat reference bertipe User
         // Arahkan reference tersebut ke object Maker
-        User maker = new Maker();
+        UserPolymorphismChallenge maker = new MakerPolymorphismChallenge();
         // Gunakan reference User tersebut untuk memanggil method login
         maker.login();
         // Buat reference bertipe User kedua
         // Arahkan reference tersebut ke object Checker
-        User checker = new Checker();
+        UserPolymorphismChallenge checker = new CheckerPolymorphismChallenge();
         // Gunakan reference User kedua untuk memanggil method login
         checker.login();
     }
 }
 
 // Buat parent class bernama User
-class User {
+class UserPolymorphismChallenge {
     // Di dalam User, buat method bernama login
     // Gunakan access modifier public
     // Gunakan return type void
@@ -32,7 +32,7 @@ class User {
 
 // Buat child class bernama Maker
 // Gunakan keyword extends untuk mewarisi User
-class Maker extends User {
+class MakerPolymorphismChallenge extends UserPolymorphismChallenge {
     // Override method login dari User menggunakan annotation @Override
     @Override
     // Di dalam login milik Maker, tampilkan pesan login khusus Maker
@@ -43,7 +43,7 @@ class Maker extends User {
 
 // Buat child class bernama Checker
 // Gunakan keyword extends untuk mewarisi User
-class Checker extends User {
+class CheckerPolymorphismChallenge extends UserPolymorphismChallenge {
     // Override method login dari User menggunakan annotation @Override
     @Override
     public void login() {

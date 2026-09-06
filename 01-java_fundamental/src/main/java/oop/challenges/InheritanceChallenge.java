@@ -7,7 +7,7 @@ public class InheritanceChallenge {
 
     public static void main(String[] args) {
         // Di dalam method main, buat object dari class Maker
-        Maker maker = new Maker();
+        MakerInheritanceChallenge maker = new MakerInheritanceChallenge();
         // Gunakan object Maker untuk memanggil method login
         // Metwhod login berasal dari parent class User
         maker.login();
@@ -18,7 +18,7 @@ public class InheritanceChallenge {
 }
 
 // Buat parent class bernama User
-class User {
+class UserInheritanceChallenge {
     // Di dalam User, buat method bernama login
     // Gunakan access modifier public
     // Gunakan return type void
@@ -30,7 +30,7 @@ class User {
 
 // Buat child class bernama Maker
 // Gunakan keyword extends untuk mewarisi class User
-class Maker extends User {
+class MakerInheritanceChallenge extends UserInheritanceChallenge {
 
     // Di dalam Maker, buat method bernama submitTest
     // Gunakan access modifier public
