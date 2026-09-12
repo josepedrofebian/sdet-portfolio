@@ -1,45 +1,56 @@
 package pom.examples.tests;
 
-// [Selenium - Import] Mengimpor WebDriver untuk mengontrol browser.
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
+import pom.examples.base.BaseTestExample;
 import pom.examples.pages.LoginPageExample;
+import pom.examples.pages.SecureAreaPageExample;
 
-public class LoginTestExample {
+public class LoginTestExample extends BaseTestExample {
 
     public static void main(String[] args) {
 
-        // [Selenium - Browser] Membuka browser Chrome.
-        WebDriver driver = new ChromeDriver();
+        // [POM - Test Setup] Buat object test
+        LoginTestExample test = new LoginTestExample();
+
+        // [POM - Test Setup] Jalankan browser setup
+        test.setUp();
 
         try {
+            // [Selenium - Navigation] Buka Login Page
+            test.driver.get(
+                    "https://the-internet.herokuapp.com/login");
 
-            // [Selenium - URL] Membuka halaman Login.
-            driver.get("https://the-internet.herokuapp.com/login");
+            // [POM - Page Object] Buat object Login Page
+            LoginPageExample loginPage = new LoginPageExample(test.driver);
 
-            // [POM - Object] Membuat object LoginPageExample dan mengirim WebDriver ke
-            // constructor.
-            LoginPageExample loginPage = new LoginPageExample(driver);
+            // [POM - Business Action] Login menggunakan credential
+            SecureAreaPageExample secureAreaPage = loginPage.login(
+                    "tomsmith",
+                    "SuperSecretPassword!");
 
-            // [POM - Action] Mengisi username melalui Page Object.
-            loginPage.enterUsername("tomsmith");
+            // [POM - Verification] Ambil flash message
+            System.out.println(
+                    "Flash Message: "
+                            + secureAreaPage.getFlashMessage());
 
-            // [POM - Action] Mengisi password melalui Page Object.
-            loginPage.enterPassword("SuperSecretPassword!");
+            // [POM - Verification] Ambil heading
+            System.out.println(
+                    "Heading: "
+                            + secureAreaPage.getHeading());
+            // [POM - Business Action] Logout dari Secure Area
+            LoginPageExample loginPageAfterLogout = secureAreaPage.logout();
 
-            // [POM - Action] Menekan tombol Login melalui Page Object.
-            loginPage.clickLogin();
+            // [POM - Verification] Pastikan sudah kembali ke Login Page
+            System.out.println(
+                    "Logout berhasil, kembali ke Login Page");
 
         } catch (Exception e) {
-
-            // [Java - Exception Handling] Menampilkan pesan error jika terjadi masalah.
-            System.out.println("Error: " + e.getMessage());
+            // [Java - Exception Handling] Tampilkan error
+            System.out.println(
+                    "Error: " + e.getMessage());
 
         } finally {
-
-            // [Selenium - Cleanup] Memastikan browser selalu ditutup.
-            driver.quit();
+            // [POM - Test Cleanup] Tutup browser
+            test.tearDown();
         }
     }
 }

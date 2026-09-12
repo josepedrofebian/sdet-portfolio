@@ -1,65 +1,55 @@
 package pom.examples.pages;
 
-// [Java - Import] Mengimpor Duration untuk menentukan timeout Explicit Wait.
-import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPageExample {
+import pom.examples.base.BasePageExample;
 
-    // [POM - WebDriver] Menyimpan WebDriver yang diberikan oleh test.
-    private WebDriver driver;
+public class LoginPageExample extends BasePageExample {
 
-    // [POM - Wait] Menyimpan Explicit Wait yang digunakan oleh Page Object.
-    private WebDriverWait wait;
+    // [POM - Locator] Locator untuk username
+    private final By usernameInput = By.id("username");
 
-    // [POM - Locator] Menyimpan locator untuk input username.
-    private By usernameInput = By.id("username");
+    // [POM - Locator] Locator untuk password
+    private final By passwordInput = By.id("password");
 
-    // [POM - Locator] Menyimpan locator untuk input password.
-    private By passwordInput = By.id("password");
+    // [POM - Locator] Locator untuk tombol login
+    private final By loginButton = By.cssSelector("button.radius");
 
-    // [POM - Locator] Menyimpan locator untuk tombol Login.
-    private By loginButton = By.cssSelector("button.radius");
-
-    // [POM - Constructor] Menerima WebDriver dari test dan menyimpannya ke variable
-    // driver.
     public LoginPageExample(WebDriver driver) {
-
-        // [POM - WebDriver] Menyimpan WebDriver ke variable instance.
-        this.driver = driver;
-
-        // [POM - Wait] Membuat Explicit Wait dengan timeout maksimal 10 detik.
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        // [POM - Constructor] Kirim driver ke BasePage
+        super(driver);
     }
 
-    // [POM - Action] Mengisi username pada halaman Login.
     public void enterUsername(String username) {
-
-        // [Selenium - Wait & Element] Menunggu input username sampai dapat diklik lalu
-        // mengisi text.
-        wait.until(
-                ExpectedConditions.elementToBeClickable(usernameInput)).sendKeys(username);
+        // [POM - Action] Mengisi username
+        type(usernameInput, username);
     }
 
-    // [POM - Action] Mengisi password pada halaman Login.
     public void enterPassword(String password) {
-
-        // [Selenium - Wait & Element] Menunggu input password sampai dapat diklik lalu
-        // mengisi text.
-        wait.until(
-                ExpectedConditions.elementToBeClickable(passwordInput)).sendKeys(password);
+        // [POM - Action] Mengisi password
+        type(passwordInput, password);
     }
 
-    // [POM - Action] Menekan tombol Login.
-    public void clickLogin() {
+    public SecureAreaPageExample clickLogin() {
+        // [POM - Action] Klik tombol login
+        click(loginButton);
 
-        // [Selenium - Wait & Element] Menunggu tombol Login sampai dapat diklik lalu
-        // melakukan click.
-        wait.until(
-                ExpectedConditions.elementToBeClickable(loginButton)).click();
+        // [POM - Navigation] Tunggu sampai halaman Secure Area terbuka
+        waitForUrl("https://the-internet.herokuapp.com/secure");
+
+        // [POM - Navigation] Return Page Object tujuan
+        return new SecureAreaPageExample(driver);
+    }
+
+    public SecureAreaPageExample login(String username, String password) {
+        // [POM - Business Action] Mengisi username
+        enterUsername(username);
+
+        // [POM - Business Action] Mengisi password
+        enterPassword(password);
+
+        // [POM - Business Action] Menjalankan proses login
+        return clickLogin();
     }
 }
