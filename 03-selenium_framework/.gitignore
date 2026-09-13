@@ -1,0 +1,9 @@
+# Allure CLI local files
+.allure/
+
+# Maven build output
+target/
+
+# IDE
+.idea/
+*.iml
